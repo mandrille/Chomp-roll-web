@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Chomp Roll</title>
+  <script src="https://bridge.playgama.com/v2/stable/playgama-bridge.js"></script>
+  <link rel="preload" href="fonts/LilitaOne.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    /* Lilita One (SIL OFL 1.1, fonts/OFL-LilitaOne.txt). */
+    @font-face { font-family: 'Lilita One'; src: url(fonts/LilitaOne.woff2) format('woff2'); font-display: swap; }
+  </style>
+  <script type="module" crossorigin src="./assets/index-8_rFbSqx.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CRXjLu9Q.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="c"></canvas>
+    <div id="hud">
+      <div id="topbar">
+        <div class="pill room pressable" id="hud-room"><span class="ico" id="roomIco"></span><b id="roomTxt">Kitchen 1-1</b></div>
+        <div class="pill size" id="hud-size">
+          <span class="ico" id="sizeIco"></span>
+          <div class="nwrap"><span id="sizeTxt">Size</span><div class="bar"><i id="sizeBar"></i><em id="goalMark"></em></div></div>
+        </div>
+        <div class="pill score" id="hud-score"><span class="ico" id="scoreIco"></span><b id="scoreN">0</b></div>
+        <div class="sidebtns">
+          <button class="round" id="gear" aria-label="Settings"></button>
+          <button class="round" id="mute" aria-label="Mute"><span class="snd">🔊</span></button>
+          <button class="round hidden" id="trophy" aria-label="Leaderboard"></button>
+        </div>
+      </div>
+      <div id="row2">
+        <div id="cans"></div>
+        <div class="pill coins" id="hud-coins"><span class="ico" id="coinIco"></span><b id="coinN">0</b></div>
+      </div>
+      <div id="hint" class="hidden"></div>
+      <div id="banner" class="hidden"></div>
+
+      <div id="title" class="screen">
+        <div class="logo pop-in" id="logo"><span class="l1">Chomp</span><span class="l2">Roll</span></div>
+        <div class="tagline toon" data-i18n="tagline">Eat junk. Get BIG. Dodge the broccoli.</div>
+        <button class="btn big orange pop-in" id="playBtn" data-i18n="play" data-icon="play">Play</button>
+        <div class="titlerow">
+          <button class="btn purple" id="shopBtn" data-i18n="shop" data-icon="shop">Shop</button>
+          <div class="wallet toon"><span class="wico"></span><b class="walletN">0</b></div>
+        </div>
+        <div class="best toon" id="bestTxt"></div>
+      </div>
+
+      <div id="shop" class="screen hidden">
+        <div class="panel shop pop-in">
+          <button class="round close" id="shopClose" aria-label="Close">✕</button>
+          <h2 class="toon" data-i18n="shop_title">Snack Shop</h2>
+          <div class="wallet toon"><span class="wico"></span><b class="walletN">0</b></div>
+          <button class="btn purple small hidden" id="freeCoinsBtn">► +50</button>
+          <div class="cards" id="cards"></div>
+        </div>
+      </div>
+
+      <div id="second" class="screen hidden">
+        <div class="panel pop-in">
+          <h2 class="toon" data-i18n="second_title">So close!</h2>
+          <div class="toon" data-i18n="second_text">Keep this run going?</div>
+          <button class="btn big green" id="secondAd" data-i18n="second_ad">► Watch an ad: keep rolling</button>
+          <button class="btn orange" id="secondCoins">► +0</button>
+          <button class="btn purple small" id="secondNo" data-i18n="no_thanks">No thanks</button>
+        </div>
+      </div>
+
+      <div id="modal" class="screen hidden">
+        <div class="panel pop-in" id="modalBody"></div>
+      </div>
+
+      <div id="toast" class="hidden"></div>
+
+      <div id="over" class="screen hidden">
+        <div class="panel pop-in">
+          <h2 class="toon" id="overTitle">Out of sugar!</h2>
+          <div class="rows">
+            <div class="row"><span data-i18n="score">Score</span><b id="ovScore">0</b></div>
+            <div class="row"><span data-i18n="rooms">Rooms</span><b id="ovRooms">0</b></div>
+            <div class="row"><span data-i18n="biggest">Biggest</span><b id="ovBig">1x</b></div>
+            <div class="row best"><span data-i18n="best">Best</span><b id="ovBest">0</b></div>
+          </div>
+          <div class="newbest hidden toon" id="newBest" data-i18n="new_best">NEW BEST!</div>
+          <div class="earned toon" id="earned"><span class="wico"></span><b id="ovCoins">+0 coins</b></div>
+          <button class="btn purple small hidden" id="doubleBtn" data-i18n="double_ad">► Ad: double coins</button>
+          <div class="btnrow">
+            <button class="btn purple" id="overShopBtn" data-i18n="shop" data-icon="shop">Shop</button>
+            <button class="btn orange" id="shareBtn" data-i18n="share">📣 Share</button>
+            <button class="round" id="overTrophy" aria-label="Leaderboard"></button>
+          </div>
+          <button class="btn big green" id="againBtn" data-i18n="again">↻ Roll again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

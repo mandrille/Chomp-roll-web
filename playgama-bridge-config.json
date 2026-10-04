@@ -1,0 +1,13 @@
+{
+  "advertisement": {
+    "minimumDelayBetweenInterstitial": 90,
+    "interstitial": { "placements": [{ "id": "weigh_in" }] },
+    "rewarded": { "placements": [{ "id": "second_chance" }, { "id": "double_coins" }, { "id": "free_coins" }] }
+  },
+  "leaderboards": [{ "id": "score" }],
+  "social": {
+    "shares": [
+      { "id": "score", "text": "I ate my way to the top in Chomp Roll! Can you get BIGGER?" }
+    ]
+  }
+}
